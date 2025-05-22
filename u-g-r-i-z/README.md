@@ -1,1 +1,1 @@
-# ML-based-GALAXY-STAR-and-QUASAR-classification
+# u-g-r-i-z based GALAXY-STAR-and-QUASAR-classification
