@@ -17,17 +17,22 @@ print('''
 ''')
 print("STARS, GALAXY, QUASARS DETECTION USING PHOTOMETRIC DATA\n")
 
+
+
+
+
+
 model = joblib.load('model.pkl')
 label_encoder = joblib.load('label_encoder.pkl')
 
-input_file = "data/SDSS_DR18.csv"
-# input_file = "SDSS17.csv"
-print("\n started...")
+# input_file = "data/SDSS_DR18.csv"
+input_file = "SDSS17.csv"
+print("\n =x_x")
 
 df = pd.read_csv(input_file)
 df = df.dropna(subset=['u', 'g', 'r', 'i', 'z', 'redshift'])
 
-# Feature Engineering
+# Feature
 df['u-g'] = df['u'] - df['g']
 df['g-r'] = df['g'] - df['r']
 df['r-i'] = df['r'] - df['i']
@@ -54,7 +59,7 @@ stars_count = 0
 galaxies_count = 0
 quasars_count = 0
 
-print("\n--- Prediction Results ---\n")
+print("\nResults ---\n")
 for idx, pred in enumerate(predictions, start=1):
     print(f"{idx}. Predicted Class: {pred}")
 
@@ -65,20 +70,24 @@ for idx, pred in enumerate(predictions, start=1):
     elif pred in ['QSO', 'QUASAR']:
         quasars_count += 1
 
-# Summary
-print("\n--- Summary ---")
-print(f"Total Stars   : {stars_count}")
-print(f"Total Galaxies: {galaxies_count}")
-print(f"Total Quasars : {quasars_count}")
 
-# Bar Chart
+
+print(f"Stars   : {stars_count}")
+print(f"Galaxies: {galaxies_count}")
+print(f"Quasars : {quasars_count}")
+
+# Bar GRAPH
 labels = ['Stars', 'Galaxies', 'Quasars']
 counts = [stars_count, galaxies_count, quasars_count]
+
+
+
+
 
 plt.figure(figsize=(8, 6))
 plt.bar(labels, counts, color=['blue', 'green', 'red'])
 plt.xlabel('Object Type')
 plt.ylabel('Count')
-plt.title('Distribution of Stars, Galaxies, and Quasars')
+plt.title('Distribution ')
 plt.tight_layout()
 plt.show()
