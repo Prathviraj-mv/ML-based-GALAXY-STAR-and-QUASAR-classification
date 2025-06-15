@@ -49,17 +49,17 @@ param_grid = {
     'class_weight': [None, 'balanced']
 }
 
-print("Tuning Random Forest parameters, please wait...")
+print("Tuning")
 grid_search = GridSearchCV(RandomForestClassifier(random_state=42),
                            param_grid, cv=3, n_jobs=-1, verbose=1)
 grid_search.fit(X_train, y_train)
 
 best_model = grid_search.best_estimator_
-print("\nBest Parameters:", grid_search.best_params_)
+print("\nParameters:", grid_search.best_params_)
 
 # Evaluation
 y_pred = best_model.predict(X_test)
-print("\nClassification Report:")
+print("\nClassification:")
 print(classification_report(y_test, y_pred, target_names=label_encoder.classes_))
 print("Accuracy: {:.2f}%".format(accuracy_score(y_test, y_pred) * 100))
 
@@ -83,6 +83,6 @@ plt.tight_layout()
 plt.show()
 
 
-joblib.dump(best_model, 'modelold.pkl')
-joblib.dump(label_encoder, 'label_encoderold.pkl')
-print("\nall good to go @_@")
+joblib.dump(best_model, 'model.pkl')
+joblib.dump(label_encoder, 'label_encoder.pkl')
+print("\nall good....................................................... lol --- @_@")
