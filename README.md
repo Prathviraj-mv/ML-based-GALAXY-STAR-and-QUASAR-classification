@@ -104,6 +104,21 @@ joblib.dump(label_encoder, 'label_encoderold.pkl')
 print("\nall good to go @_@")
 ~~~
 # TEST RANDOM FOREST TRAINED MODEL
+
+<p>
+ <img src="star.png" width=50%>
+</p>
+<p>
+ <img src="qsr.png" width=50%>
+</p>
+<p>
+ <img src="galaxy.png" width=50%>
+</p>
+
+
+
+
+
 ~~~
 import joblib
 import pandas as pd
